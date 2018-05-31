@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2002
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "员工工资管理系统", "员工工资管理系统\员工工资管理系统.vcxproj", "{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Debug|x64.ActiveCfg = Debug|x64
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Debug|x64.Build.0 = Debug|x64
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Debug|x86.ActiveCfg = Debug|Win32
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Debug|x86.Build.0 = Debug|Win32
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Release|x64.ActiveCfg = Release|x64
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Release|x64.Build.0 = Release|x64
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Release|x86.ActiveCfg = Release|Win32
+		{54EA6B80-0A4C-493D-8CC0-E28B43941BD4}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A52148D2-ADDB-4252-96D1-A042775A4BDF}
+	EndGlobalSection
+EndGlobal
