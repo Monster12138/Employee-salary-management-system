@@ -15,18 +15,21 @@ Employee *CreateList(Employee *H) {
 	while (c)
 	{
 		cout << "请输入要添加的员工工种：" << endl;
-		cout << "1.固定薪资\n2.计时职员\n";
+		cout << "1.固定薪资\n2.计时职员\n3.普通销售员\n";
 		cin >> type;
 		switch (type)
 		{
 		case 1:q = new Fixed; break;
 		case 2:q = new Timing; break;
+		case 3:q = new Salesman; break;
+		default:system("cls"); cout << "请输入正确选项！" << endl; continue;
 		}
 		q->AddEmployee();
 		switch (type)
 		{
 		case 1:q->SetType("固定薪资"); break;
 		case 2:q->SetType("计时职工"); break;
+		case 3:q->SetType("普通销售员"); break;
 		}
 		p->next = q;
 		q->ptr = p;

@@ -22,6 +22,7 @@ public:
 	void ChangeEmployee();
 	void SetFixedWage();
 	void SetLeaveDays();
+	void Wages();
 	~Fixed();
 };
 
@@ -83,6 +84,10 @@ void Fixed::PrintEmployee() {
 	cout << bonus << " " << FixedWage << " " << LeaveDays << " " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
+void Fixed::Wages() {
+	if_issue = 1;
+}
+
 Fixed::~Fixed() {
 	cout << "析构" << endl;
 }
@@ -105,6 +110,7 @@ public:
 	void SetHourWage();
 	void SetEmployee();
 	void SetRatio();
+	void Wages(); 
 	~Timing();
 };
 
@@ -187,6 +193,86 @@ void Timing::PrintEmployee() {
 	cout << bonus << " " << Time << " " << HourWage << " " << OverTime << " " << Wage << " " << if_issue << endl;
 }
 
+void Timing::Wages() {
+	if_issue = 1;
+}
+
 Timing ::~Timing() {
+	cout << "析构" << endl;
+}
+
+class Salesman :virtual public Employee {
+private:
+	float bonus;
+	float Sale;
+	float Reward;
+	float Deduction;
+	float Wage;
+	int if_issue;
+public:
+	void AddEmployee();
+	void SetTiming();
+	void PrintEmployee();
+	void ChangeEmployee();
+	void SetHourWage();
+	void SetEmployee();
+	void SetRatio();
+	~Salesman();
+};
+
+void Salesman::AddEmployee() {
+	Employee::AddEmployee();
+	cout << "输入员工销售额：";
+	cin >> Sale;
+	cout << "输入员工提成比例(如：提成为20%则输入0.2)：";
+	cin >> Reward;
+	if (GetBrithday().if_brithmonth())bonus = 200;
+	else bonus = 0;
+	if (Sale < 30000) {
+		Wage = Sale*Reward - (30000 - Sale)*0.002 + bonus;
+	}
+	else {
+		Wage = Sale*Reward + bonus;
+	}
+	if_issue = 0;
+	cout << "员工添加成功！\n";
+}
+
+void Salesman::SetEmployee() {
+	cout << "输入员工销售额：";
+	cin >> Sale;
+	cout << "输入员工提成比例(如：提成为20%则输入0.2)：";
+	cin >> Reward;
+	if (GetBrithday().if_brithmonth())bonus = 200;
+	else bonus = 0;
+	if (Sale < 30000) {
+		Deduction = (30000 - Sale)*0.002;
+		Wage = Sale*Reward - Deduction + bonus;
+	}
+	else {
+		Wage = Sale*Reward + bonus;
+	}
+}
+
+void Salesman::ChangeEmployee() {
+	int c;
+	int type;
+	Employee *q;
+	cout << "1.修改员工基本信息\n2.修改员工工作信息\n3.修改员工全部信息\n";
+	cin >> c;
+	if (c == 1)Employee::ChangeEmployee();
+	else if (c == 2)Salesman::SetEmployee();
+	else if (c == 3) {
+		Employee::ChangeEmployee();
+		Salesman::SetEmployee();
+	}
+}
+
+void Salesman::PrintEmployee() {
+	Employee::PrintEmployee();
+	cout << bonus << " " << Sale << " " << Reward << " " << Deduction << " " << Wage << " " << if_issue << endl;
+}
+
+Salesman ::~Salesman() {
 	cout << "析构" << endl;
 }
