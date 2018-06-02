@@ -31,6 +31,7 @@ public:
 	string GetType();
 	void SetType(string T);
 	virtual void Wages();
+	virtual void ChangeAll();
 	~Employee();
 };
 
@@ -107,6 +108,10 @@ void Employee::PrintEmployee() {
 }
 
 void Employee::Wages() {
+
+}
+
+void ::Employee::ChangeAll() {
 
 }
 

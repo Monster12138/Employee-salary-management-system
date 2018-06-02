@@ -4,6 +4,11 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+void InputTips() {
+	system("cls");
+	cout << "请输入正确选项！" << endl;
+}
+
 Employee *CreateList(Employee *H) {
 	Employee *p, *q;
 	H = new Employee;
@@ -15,14 +20,15 @@ Employee *CreateList(Employee *H) {
 	while (c)
 	{
 		cout << "请输入要添加的员工工种：" << endl;
-		cout << "1.固定薪资\n2.计时职员\n3.普通销售员\n";
+		cout << "1.固定薪资\n2.计时职员\n3.普通销售员\n4.带薪销售员\n";
 		cin >> type;
 		switch (type)
 		{
 		case 1:q = new Fixed; break;
 		case 2:q = new Timing; break;
 		case 3:q = new Salesman; break;
-		default:system("cls"); cout << "请输入正确选项！" << endl; continue;
+		case 4:q = new PaidSalesman; break;
+		default:InputTips(); continue;
 		}
 		q->AddEmployee();
 		switch (type)
@@ -30,13 +36,26 @@ Employee *CreateList(Employee *H) {
 		case 1:q->SetType("固定薪资"); break;
 		case 2:q->SetType("计时职工"); break;
 		case 3:q->SetType("普通销售员"); break;
+		case 4:q->SetType("带薪销售员"); break;
 		}
 		p->next = q;
 		q->ptr = p;
 		q->next = NULL;
 		p = p->next;
-		cout << "继续添加输入1，结束添加输入0:";
-		cin >> c;
+		while (1)
+		{
+			cout << "继续添加输入1，结束添加输入0:";
+			cin >> c;
+			if (c != 1 && c != 0) {
+				InputTips();
+				continue;
+			}
+			else
+			{
+				break;
+			}
+
+		}
 	}
 	return H;
 }
@@ -55,6 +74,10 @@ Employee *FindEmployee(Employee *H) {
 	Employee *p = H->next;
 	cout << "1.按工号查找\n2.按姓名查找\n";
 	cin >> c;
+	if (c != 1 && c != 0) {
+		InputTips();
+		return NULL;
+	}
 	if (c) {
 		int num;
 		cout << "输入工号:";
@@ -63,7 +86,10 @@ Employee *FindEmployee(Employee *H) {
 			if (p->GetId() == num)break;
 			p = p->next;
 		}
-		if (p == NULL)cout << "查无此人!";
+		if (p == NULL) {
+			cout << "查无此人!\n";
+			FindEmployee(H);
+		}
 	}
 	else {
 		if (c) {
@@ -75,7 +101,8 @@ Employee *FindEmployee(Employee *H) {
 				p = p->next;
 			}
 			if (p == NULL) {
-				cout << "查无此人!";
+				cout << "查无此人!\n";
+				FindEmployee(H);
 			}
 		}
 	}
@@ -91,6 +118,10 @@ void DelEmployee(Employee *H) {
 	cout << "确定要删除此员工？此操作不可恢复！\n0.否\n1.是\n";
 	int c;
 	cin >> c;
+	if (c != 1 && c != 0) {
+		InputTips();
+		return;
+	}
 	if (c) {
 		p->ptr->next = p->next;
 		if(p->next)p->next->ptr = p->ptr;
@@ -110,36 +141,50 @@ void ChangeEmployee(Employee *H) {
 	int x;
 	int type;
 	cin >> c;
+	if (c != 1 && c != 0) {
+		InputTips();
+		return;
+	}
 	if (c) {
 		cout << "选择修改方式:\n";
 		cout << "1.修改员工其他信息;0.修改员工工种\n";
 		cin >> x;
+		if (x != 1 && x != 0) {
+			InputTips();
+			return;
+		}
 		if (x)p->ChangeEmployee();
 		else {
-			cout << "请输入要将员工工种修改为：\n1.固定薪资\n2.计时职工\n";
+			cout << "请输入要将员工工种修改为：\n1.固定薪资\n2.计时职工\n3.普通销售员\n4.带薪销售员\n";
 			cin >> type;
 			switch (type)
 			{
 			case 1: {
 				q = new Fixed;
 				q->SetType("固定薪资");
-				q->AddEmployee();
-				p->next->ptr = q;
-				q->next = p->next;
-				q->ptr = p->ptr; 
-				p->ptr->next = q;
 				break;
 			}
 			case 2: {
 				q = new Timing;
 				q->SetType("计时职工");
-				q->AddEmployee();
-				p->next->ptr = q;
-				q->next = p->next;
-				q->ptr = p->ptr;
-				p->ptr->next = q;
 				break;
 			}
+			case 3: {
+				q = new Salesman;
+				q->SetType("普通销售员");
+				break;
+			}
+			case 4: {
+				q = new PaidSalesman;
+				q->SetType("带薪销售员");
+				break;
+			}
+			default:InputTips(); break;
+			q->AddEmployee();
+			p->next->ptr = q;
+			q->next = p->next;
+			q->ptr = p->ptr;
+			p->ptr->next = q;
 			}
 		}
 	}
@@ -147,3 +192,4 @@ void ChangeEmployee(Employee *H) {
 		ChangeEmployee(H);
 	}
 }
+
