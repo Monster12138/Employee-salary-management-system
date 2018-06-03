@@ -180,12 +180,13 @@ void ChangeEmployee(Employee *H) {
 				break;
 			}
 			default:InputTips(); break;
-			q->AddEmployee();
+			}
+			q->SetID(p->GetId());
+			q->ChangeAll();
 			p->next->ptr = q;
 			q->next = p->next;
 			q->ptr = p->ptr;
 			p->ptr->next = q;
-			}
 		}
 	}
 	else {
