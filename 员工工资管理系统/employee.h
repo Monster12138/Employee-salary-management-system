@@ -30,8 +30,6 @@ public:
 	void SetID(int x);
 	string GetType();
 	void SetType(string T);
-	virtual void Wages();
-	virtual void ChangeAll();
 	~Employee();
 };
 
@@ -105,14 +103,6 @@ Date Employee::GetBrithday() {
 
 void Employee::PrintEmployee() {
 	cout << id << " " << name << " " << sex << " " << brithday.GetYear() << "-" << brithday.GetMonth() << "-" << brithday.GetDay() << " " << Type << " ";
-}
-
-void Employee::Wages() {
-
-}
-
-void ::Employee::ChangeAll() {
-
 }
 
 void Employee::SetID(int x) {
