@@ -17,4 +17,5 @@ c:\users\monster\source\repos\员工工资管理系统\employee-salary-managemen
 c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(351): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
 c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(358): warning C4101: “type”: 未引用的局部变量
 c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(359): warning C4101: “q”: 未引用的局部变量
+  LINK : 没有找到 C:\Users\Monster\source\repos\员工工资管理系统\Employee-salary-management-system\Debug\员工工资管理系统.exe 或上一个增量链接没有生成它；正在执行完全链接
   员工工资管理系统.vcxproj -> C:\Users\Monster\source\repos\员工工资管理系统\Employee-salary-management-system\Debug\员工工资管理系统.exe
