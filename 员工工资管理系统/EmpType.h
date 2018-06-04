@@ -4,6 +4,8 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
+using std::setw;
+using std::internal;
 
 class Timing ;
 
@@ -88,7 +90,14 @@ void Fixed::ChangeAll() {
 
 void Fixed::PrintEmployee() {
 	Employee::PrintEmployee();
-	cout << bonus << " " << FixedWage << " " << LeaveDays << " " << Deduction << " " << Wage << " " << if_issue << endl;
+	cout << internal << setw(10) << bonus
+		<< internal << setw(10) << FixedWage
+		<< internal << setw(10) << LeaveDays
+		<< internal << setw(10) << Deduction
+		<< internal << setw(10) << Wage
+		<< internal << setw(10) << if_issue
+		<< endl;
+	//cout << bonus << " " << FixedWage << " " << LeaveDays << " " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
 void Fixed::Wages(int x) {
@@ -209,7 +218,14 @@ void Timing::ChangeAll() {
 
 void Timing::PrintEmployee() {
 	Employee::PrintEmployee();
-	cout << bonus << " " << Time << " " << HourWage << " " << OverTime << " " << Wage << " " << if_issue << endl;
+	cout << internal << setw(10) << bonus
+		<< internal << setw(10) << Time
+		<< internal << setw(10) << HourWage
+		<< internal << setw(10) << OverTime
+		<< internal << setw(10) << Wage
+		<< internal << setw(10) << if_issue
+		<< endl;
+	//cout << bonus << " " << Time << " " << HourWage << " " << OverTime << " " << Wage << " " << if_issue << endl;
 }
 
 void Timing::Wages(int x) {
@@ -302,7 +318,14 @@ void Salesman::ChangeAll() {
 
 void Salesman::PrintEmployee() {
 	Employee::PrintEmployee();
-	cout << bonus << " " << Sale << " " << Reward << " " << Deduction << " " << Wage << " " << if_issue << endl;
+	cout << internal << setw(10) << bonus
+		<< internal << setw(10) << Sale
+		<< internal << setw(10) << Reward
+		<< internal << setw(10) << Deduction
+		<< internal << setw(10) << Wage
+		<< internal << setw(10) << if_issue
+		<< endl;
+	//cout << bonus << " " << Sale << " " << Reward << " " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
 void Salesman::Wages(int x) {
@@ -395,7 +418,15 @@ void PaidSalesman::ChangeAll() {
 
 void PaidSalesman::PrintEmployee() {
 	Employee::PrintEmployee();
-	cout << bonus << " " << FixedWage <<" "<< Sale << " " << Reward << " " <<Leavedays <<" " << Deduction << " " << Wage << " " << if_issue << endl;
+	cout << internal << setw(10) << bonus
+		<< internal << setw(10) << FixedWage
+		<< internal << setw(10) << Sale
+		<< internal << setw(10) << Reward
+		<< internal << setw(10) << Deduction
+		<< internal << setw(10) << Wage
+		<< internal << setw(10) << if_issue
+		<< endl;
+	//cout << bonus << " " << FixedWage <<" "<< Sale << " " << Reward << " " <<Leavedays <<" " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
 void PaidSalesman::Wages(int x) {

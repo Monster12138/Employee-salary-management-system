@@ -1,10 +1,12 @@
 #include<string>
 #include"Date.h"
 
+using std::setw;
 using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
+using std::internal;
 
 class Employee {
 private:
@@ -105,7 +107,13 @@ Date Employee::GetBrithday() {
 }
 
 void Employee::PrintEmployee() {
-	cout << id << " " << name << " " << sex << " " << brithday.GetYear() << "-" << brithday.GetMonth() << "-" << brithday.GetDay() << " " << Type << " ";
+	cout <<internal <<setw(5)<< id 
+		<< internal <<setw(4)<< name 
+		<< internal <<setw(6)<< sex 
+		<< internal <<setw(8)<< brithday.GetYear() <<"-"
+		<< internal << setw(2) << brithday.GetMonth() << "-"
+		<< internal << setw(2) << brithday.GetDay() 
+		<< internal << setw(12) << Type;
 }
 
 void Employee::Wages(int x) {

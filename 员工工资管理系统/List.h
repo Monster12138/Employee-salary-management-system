@@ -3,6 +3,8 @@ using std::string;
 using std::cout;
 using std::cin;
 using std::endl;
+using std::internal;
+using std::setw;
 
 void InputTips() {
 	system("cls");
@@ -60,12 +62,83 @@ Employee *CreateList(Employee *H) {
 	return H;
 }
 
+void FormatOutput() {
+	cout << internal << setw(5) << "工号";
+	cout << internal << setw(6) << "姓名";
+	cout << internal << setw(6) << "性别";
+	cout << internal << setw(12) << "出生日期";
+	cout << internal << setw(10) << "工种";
+	cout << internal << setw(13) << "奖励薪金";
+}
+
 void PrintList(Employee *H) {
 	Employee *p = H->next;
-	cout << "工号 姓名 性别 出生日期 工种 奖励薪金 固定薪金 请假天数 应扣工资 实发工资 是否领取" << endl;
+	cout << "******************************************固定月薪******************************************" << endl;
+	FormatOutput();
+	cout << internal << setw(10) << "固定薪金"
+		<< internal << setw(10) << "请假天数"
+		<< internal << setw(10) << "应扣工资"
+		<< internal << setw(10) << "实发工资"
+		<< internal << setw(10) << "是否领取"
+		<< endl;
 	while (p) {
-		p->PrintEmployee();
-		p = p->next;
+		if (p->GetType() == "固定薪资") {
+			p->PrintEmployee();
+			p = p->next;
+		}
+		else p = p->next;
+	}
+	p = H->next;
+	cout << "******************************************计时职工***************************************" << endl;
+	FormatOutput();
+	cout << internal << setw(10) << "工作时长"
+		<< internal << setw(10) << "时薪"
+		<< internal << setw(10) << "加班时长"
+		<< internal << setw(10) << "实发工资"
+		<< internal << setw(10) << "是否领取"
+		<< endl;
+	//cout << "工号 姓名 性别 出生日期 工种 奖励薪金 工作时长 时薪  加班时长 实发工资 是否领取" << endl;
+	while (p) {
+		if (p->GetType() == "计时职工") {
+			p->PrintEmployee();
+			p = p->next;
+		}
+		else p = p->next;
+	}
+	p = H->next;
+	cout << "****************************************普通销售员****************************************" << endl;
+	FormatOutput();
+	cout << internal << setw(10) << "销售额"
+		<< internal << setw(10) << "提成比例"
+		<< internal << setw(10) << "应扣工资"
+		<< internal << setw(10) << "实发工资"
+		<< internal << setw(10) << "是否领取"
+		<< endl;
+	//cout << "工号 姓名 性别 出生日期 工种 奖励薪金 销售额 提成比例 应扣工资 实发工资 是否领取" << endl;
+	while (p) {
+		if (p->GetType() == "普通销售员") {
+			p->PrintEmployee();
+			p = p->next;
+		}
+		else p = p->next;
+	}
+	p = H->next;
+	cout << "*********************************************带薪销售员********************************************" << endl;
+	FormatOutput();
+	cout << internal << setw(10) << "固定月薪"
+		<< internal << setw(10) << "销售额"
+		<< internal << setw(10) << "提成比例"
+		<< internal << setw(10) << "应扣工资"
+		<< internal << setw(10) << "实发工资"
+		<< internal << setw(10) << "是否领取"
+		<< endl;
+	//cout << "工号 姓名 性别 出生日期 工种 奖励薪金 固定月薪 销售额 提成比例 应扣工资 实发工资 是否领取" << endl;
+	while (p) {
+		if (p->GetType() == "带薪销售员") {
+			p->PrintEmployee();
+			p = p->next;
+		}
+		else p = p->next;
 	}
 }
 
