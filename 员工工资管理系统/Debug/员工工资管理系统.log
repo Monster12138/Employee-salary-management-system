@@ -1,1 +1,20 @@
-﻿  员工工资管理系统.vcxproj -> C:\Users\Monster\source\repos\员工工资管理系统\Employee-salary-management-system\Debug\员工工资管理系统.exe
+﻿  main.cpp
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\date.h(41): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\ucrt\time.h(505): note: 参见“localtime”的声明
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(41): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(55): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(75): warning C4101: “type”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(76): warning C4101: “q”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(203): warning C4101: “type”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(204): warning C4101: “q”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(272): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(292): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(303): warning C4101: “type”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(304): warning C4101: “q”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(376): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(377): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(395): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(396): warning C4244: “+=”: 从“double”转换到“float”，可能丢失数据
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(403): warning C4101: “type”: 未引用的局部变量
+c:\users\monster\source\repos\员工工资管理系统\employee-salary-management-system\员工工资管理系统\emptype.h(404): warning C4101: “q”: 未引用的局部变量
+  员工工资管理系统.vcxproj -> C:\Users\Monster\source\repos\员工工资管理系统\Employee-salary-management-system\Debug\员工工资管理系统.exe

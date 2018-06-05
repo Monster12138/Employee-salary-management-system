@@ -268,3 +268,57 @@ void ChangeEmployee(Employee *H) {
 	}
 }
 
+void WageType(Employee *H,string x) {
+	Employee *p = H->next;
+	while (p)
+	{
+		if (p->GetType() == "固定薪资") {
+			p->Wages(1);
+			p = p->next;
+		}
+		else p = p->next;
+	}
+}
+
+void Wages(Employee *H) {
+	Employee *p = H->next;
+	Employee *q = NULL;
+	int x;
+	int type;
+	cout << "选择发工资方式:\n";
+	cout << "1.按员工发工资\n2.按类型发工资\n";
+	cin >> x;
+	if (x != 1 && x != 2) {
+		InputTips();
+		return;
+	}
+	if (x == 1) {
+		p = FindEmployee(H);
+		p->Wages(1);
+	}
+	else {
+		cout << "请输入给哪一类员工发工资：\n1.固定薪资\n2.计时职工\n3.普通销售员\n4.带薪销售员\n";
+		cin >> type;
+		switch (type)
+		{
+		case 1: {
+			WageType(H, "固定薪资");
+			break;
+		}
+		case 2: {
+			WageType(H, "计时职工");
+			break;
+		}
+		case 3: {
+			WageType(H, "普通销售员");
+			break;
+		}
+		case 4: {
+			WageType(H, "带薪销售员");
+			break;
+		}
+		default:InputTips(); break;
+		}
+	}
+	cout << "工资发放完成!" << endl;
+}
