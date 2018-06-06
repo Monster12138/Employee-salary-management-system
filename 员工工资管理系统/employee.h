@@ -107,8 +107,8 @@ Date Employee::GetBrithday() {
 }
 
 void Employee::PrintEmployee() {
-	cout <<internal <<setw(5)<< id 
-		<< internal <<setw(4)<< name 
+	cout <<internal <<setw(4)<< id 
+		<< internal <<setw(8)<< name 
 		<< internal <<setw(6)<< sex 
 		<< internal <<setw(8)<< brithday.GetYear() <<"-"
 		<< internal << setw(2) << brithday.GetMonth() << "-"

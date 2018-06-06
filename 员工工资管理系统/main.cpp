@@ -27,12 +27,6 @@ void UI()
 	cout << "				****************************************************" << endl;
 }
 
-void Cls() {
-	system("cls");
-	cout << "\n\n\n\n\n\n\n\n\n";
-	cout << "				----------------------------------------------------"<<endl;
-}
-
 void Pas() {
 	system("pause");
 }
@@ -45,7 +39,7 @@ void  menu(Employee *H){
 		cout << "请输入选项:";
 		cin >> c;
 		switch (c) {
-		case 1:Cls(); H = CreateList(H); Pas(); break;
+		case 1:Cls(); H = CreateList(H); cout << "请按任意键返回菜单" << endl; Pas(); break;
 		case 2:Cls(); PrintList(H); Pas(); break;
 		case 3:Cls(); FindEmployee(H); Pas();  break;
 		case 4:Cls(); DelEmployee(H); Pas();  break;

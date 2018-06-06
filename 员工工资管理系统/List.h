@@ -8,7 +8,13 @@ using std::setw;
 
 void InputTips() {
 	system("cls");
+	cout << "\n\n\n\n\n\n";
 	cout << "请输入正确选项！" << endl;
+}
+
+void Cls() {
+	system("cls");
+	cout << "\n\n\n\n\n\n";
 }
 
 Employee *CreateList(Employee *H) {
@@ -58,6 +64,7 @@ Employee *CreateList(Employee *H) {
 			}
 
 		}
+		Cls();
 	}
 	return H;
 }
@@ -65,7 +72,7 @@ Employee *CreateList(Employee *H) {
 void FormatOutput() {
 	cout << internal << setw(5) << "工号";
 	cout << internal << setw(6) << "姓名";
-	cout << internal << setw(6) << "性别";
+	cout << internal << setw(8) << "性别";
 	cout << internal << setw(12) << "出生日期";
 	cout << internal << setw(10) << "工种";
 	cout << internal << setw(13) << "奖励薪金";
@@ -73,7 +80,7 @@ void FormatOutput() {
 
 void PrintList(Employee *H) {
 	Employee *p = H->next;
-	cout << "******************************************固定月薪******************************************" << endl;
+	cout << "***********************************************固定月薪***********************************************" << endl;
 	FormatOutput();
 	cout << internal << setw(10) << "固定薪金"
 		<< internal << setw(10) << "请假天数"
@@ -88,8 +95,9 @@ void PrintList(Employee *H) {
 		}
 		else p = p->next;
 	}
+	cout << "------------------------------------------------------------------------------------------------------\n" << endl;
 	p = H->next;
-	cout << "******************************************计时职工***************************************" << endl;
+	cout << "***********************************************计时职工***********************************************" << endl;
 	FormatOutput();
 	cout << internal << setw(10) << "工作时长"
 		<< internal << setw(10) << "时薪"
@@ -97,7 +105,6 @@ void PrintList(Employee *H) {
 		<< internal << setw(10) << "实发工资"
 		<< internal << setw(10) << "是否领取"
 		<< endl;
-	//cout << "工号 姓名 性别 出生日期 工种 奖励薪金 工作时长 时薪  加班时长 实发工资 是否领取" << endl;
 	while (p) {
 		if (p->GetType() == "计时职工") {
 			p->PrintEmployee();
@@ -105,8 +112,9 @@ void PrintList(Employee *H) {
 		}
 		else p = p->next;
 	}
+	cout << "------------------------------------------------------------------------------------------------------\n" << endl;
 	p = H->next;
-	cout << "****************************************普通销售员****************************************" << endl;
+	cout << "***********************************************普通销售员*********************************************" << endl;
 	FormatOutput();
 	cout << internal << setw(10) << "销售额"
 		<< internal << setw(10) << "提成比例"
@@ -114,7 +122,6 @@ void PrintList(Employee *H) {
 		<< internal << setw(10) << "实发工资"
 		<< internal << setw(10) << "是否领取"
 		<< endl;
-	//cout << "工号 姓名 性别 出生日期 工种 奖励薪金 销售额 提成比例 应扣工资 实发工资 是否领取" << endl;
 	while (p) {
 		if (p->GetType() == "普通销售员") {
 			p->PrintEmployee();
@@ -122,8 +129,9 @@ void PrintList(Employee *H) {
 		}
 		else p = p->next;
 	}
+	cout << "------------------------------------------------------------------------------------------------------\n" << endl;
 	p = H->next;
-	cout << "*********************************************带薪销售员********************************************" << endl;
+	cout << "****************************************************带薪销售员**************************************************" << endl;
 	FormatOutput();
 	cout << internal << setw(10) << "固定月薪"
 		<< internal << setw(10) << "销售额"
@@ -132,7 +140,6 @@ void PrintList(Employee *H) {
 		<< internal << setw(10) << "实发工资"
 		<< internal << setw(10) << "是否领取"
 		<< endl;
-	//cout << "工号 姓名 性别 出生日期 工种 奖励薪金 固定月薪 销售额 提成比例 应扣工资 实发工资 是否领取" << endl;
 	while (p) {
 		if (p->GetType() == "带薪销售员") {
 			p->PrintEmployee();
@@ -140,6 +147,7 @@ void PrintList(Employee *H) {
 		}
 		else p = p->next;
 	}
+	cout << "----------------------------------------------------------------------------------------------------------------\n" << endl;
 }
 
 Employee *FindEmployee(Employee *H) {
@@ -147,11 +155,11 @@ Employee *FindEmployee(Employee *H) {
 	Employee *p = H->next;
 	cout << "1.按工号查找\n2.按姓名查找\n";
 	cin >> c;
-	if (c != 1 && c != 0) {
+	if (c != 1 && c != 2) {
 		InputTips();
 		return NULL;
 	}
-	if (c) {
+	if (c == 1) {
 		int num;
 		cout << "输入工号:";
 		cin >> num;
@@ -161,25 +169,57 @@ Employee *FindEmployee(Employee *H) {
 		}
 		if (p == NULL) {
 			cout << "查无此人!\n";
-			FindEmployee(H);
+			return NULL;
 		}
 	}
 	else {
-		if (c) {
-			string n;
-			cout << "输入姓名:";
-			cin >> n;
-			while (p) {
-				if (p->GetName() == n)break;
-				p = p->next;
-			}
-			if (p == NULL) {
-				cout << "查无此人!\n";
-				FindEmployee(H);
-			}
+		string n;
+		cout << "输入姓名:";
+		cin >> n;
+		while (p) {
+			if (p->GetName() == n)break;
+			p = p->next;
+		}
+		if (p == NULL) {
+			cout << "查无此人!\n";
+			return NULL;
 		}
 	}
 	cout << "查找到员工:\n";
+	FormatOutput();
+	if (p->GetType() == "固定薪资") {
+		cout << internal << setw(10) << "固定薪金"
+			<< internal << setw(10) << "请假天数"
+			<< internal << setw(10) << "应扣工资"
+			<< internal << setw(10) << "实发工资"
+			<< internal << setw(10) << "是否领取"
+			<< endl;
+	}
+	else if (p->GetType() == "计时职工") {
+		cout << internal << setw(10) << "工作时长"
+			<< internal << setw(10) << "时薪"
+			<< internal << setw(10) << "加班时长"
+			<< internal << setw(10) << "实发工资"
+			<< internal << setw(10) << "是否领取"
+			<< endl;
+	}
+	else if (p->GetType() == "普通销售员") {
+		cout << internal << setw(10) << "销售额"
+			<< internal << setw(10) << "提成比例"
+			<< internal << setw(10) << "应扣工资"
+			<< internal << setw(10) << "实发工资"
+			<< internal << setw(10) << "是否领取"
+			<< endl;
+	}
+	else if (p->GetType() == "带薪销售员") {
+		cout << internal << setw(10) << "固定月薪"
+			<< internal << setw(10) << "销售额"
+			<< internal << setw(10) << "提成比例"
+			<< internal << setw(10) << "应扣工资"
+			<< internal << setw(10) << "实发工资"
+			<< internal << setw(10) << "是否领取"
+			<< endl;
+	}
 	p->PrintEmployee();
 	return p;
 }
@@ -188,6 +228,7 @@ void DelEmployee(Employee *H) {
 	Employee *p = H->next;
 	cout << "选择删除方式:\n";
 	p = FindEmployee(H);
+	if (!p)return;
 	cout << "确定要删除此员工？此操作不可恢复！\n0.否\n1.是\n";
 	int c;
 	cin >> c;
@@ -209,6 +250,7 @@ void ChangeEmployee(Employee *H) {
 	Employee *p = H->next;
 	Employee *q = NULL;
 	p = FindEmployee(H);
+	if (!p)return;
 	cout << "确定要修改此员工信息？此操作不可恢复！\n0.否\n1.是\n";
 	int c;
 	int x;
@@ -272,7 +314,7 @@ void WageType(Employee *H,string x) {
 	Employee *p = H->next;
 	while (p)
 	{
-		if (p->GetType() == "固定薪资") {
+		if (p->GetType() == x) {
 			p->Wages(1);
 			p = p->next;
 		}
@@ -294,6 +336,7 @@ void Wages(Employee *H) {
 	}
 	if (x == 1) {
 		p = FindEmployee(H);
+		if (!p)return;
 		p->Wages(1);
 	}
 	else {

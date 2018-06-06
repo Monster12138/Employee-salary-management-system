@@ -57,19 +57,6 @@ void Fixed::SetFixed() {
 	if (Wage < 0)Wage = 0;
 }
 
-void Fixed::SetFixedWage()
-{
-	cout << "输入固定薪资:";
-	cin >> FixedWage;
-	cout << "固定薪资修改成功!" << endl;
-}
-
-void Fixed::SetLeaveDays() {
-	cout << "输入请假天数:";
-	cin >> LeaveDays;
-	cout << "请假天数修改成功!" << endl;
-}
-
 void Fixed::ChangeEmployee() {
 	int c;
 	int type;
@@ -97,7 +84,6 @@ void Fixed::PrintEmployee() {
 		<< internal << setw(10) << Wage
 		<< internal << setw(10) << if_issue
 		<< endl;
-	//cout << bonus << " " << FixedWage << " " << LeaveDays << " " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
 void Fixed::Wages(int x) {
@@ -179,25 +165,6 @@ void Timing::SetEmployee() {
 	if (Wage < 0)Wage = 0;
 }
 
-void Timing::SetHourWage()
-{
-	cout << "输入员工时薪:";
-	cin >> HourWage;
-	cout << "员工时薪修改成功!" << endl;
-}
-
-void Timing::SetTiming() {
-	cout << "输入员工工作时长:";
-	cin >> Time;
-	cout << "工作时长修改成功!" << endl;
-}
-
-void Timing::SetRatio() {
-	cout << "输入员工加班工资倍率:";
-	cin >> Ratio;
-	cout << "加班工资倍率修改成功!" << endl;
-}
-
 void Timing::ChangeEmployee() {
 	int c;
 	int type;
@@ -225,7 +192,6 @@ void Timing::PrintEmployee() {
 		<< internal << setw(10) << Wage
 		<< internal << setw(10) << if_issue
 		<< endl;
-	//cout << bonus << " " << Time << " " << HourWage << " " << OverTime << " " << Wage << " " << if_issue << endl;
 }
 
 void Timing::Wages(int x) {
@@ -325,7 +291,6 @@ void Salesman::PrintEmployee() {
 		<< internal << setw(10) << Wage
 		<< internal << setw(10) << if_issue
 		<< endl;
-	//cout << bonus << " " << Sale << " " << Reward << " " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
 void Salesman::Wages(int x) {
@@ -426,7 +391,6 @@ void PaidSalesman::PrintEmployee() {
 		<< internal << setw(10) << Wage
 		<< internal << setw(10) << if_issue
 		<< endl;
-	//cout << bonus << " " << FixedWage <<" "<< Sale << " " << Reward << " " <<Leavedays <<" " << Deduction << " " << Wage << " " << if_issue << endl;
 }
 
 void PaidSalesman::Wages(int x) {
