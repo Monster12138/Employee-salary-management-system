@@ -47,7 +47,7 @@ void Employee::AddEmployee() {
 	cin >> n;
 	cout << "输入员工性别：";
 	cin >> s;
-	cout << "输入员工出生日期：";
+	cout << "输入员工出生日期：(年 月 日，中间用空格隔开)";
 	cin >> y>>m>>d;
 	num++;
 	id = num;
