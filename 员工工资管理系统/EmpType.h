@@ -7,7 +7,6 @@ using std::endl;
 using std::setw;
 using std::internal;
 
-class Timing ;
 
 class Fixed :virtual public Employee {
 private:
@@ -22,11 +21,10 @@ public:
 	void SetFixed();
 	void PrintEmployee();
 	void ChangeEmployee();
-	void SetFixedWage();
-	void SetLeaveDays();
 	void Wages(int x);
 	void ChangeAll();
 	int GetIf_issue();
+	void SaveEmp();
 	~Fixed();
 };
 
@@ -94,11 +92,29 @@ int Fixed::GetIf_issue() {
 	return if_issue;
 }
 
+void Fixed::SaveEmp() {
+	ofstream fout;
+	fout.open("d:\\data.txt", ios::app);
+	if (!fout) {
+		cout << "不能打开文件！" << endl;
+		exit(0);
+	}
+	else {
+		fout << bonus << " "
+			<< FixedWage << " "
+			<< LeaveDays << " "
+			<< Deduction << " "
+			<< Wage << " "
+			<< if_issue << "\n";
+	}
+	fout.close();
+}
+
 Fixed::~Fixed() {
 	cout << "析构" << endl;
 }
 
-
+//------------------------------------------------------------------------------------------------
 class Timing :virtual public Employee {
 private:
 	float bonus;
@@ -110,15 +126,13 @@ private:
 	int if_issue;
 public:
 	void AddEmployee();
-	void SetTiming();
 	void PrintEmployee();
 	void ChangeEmployee();
-	void SetHourWage();
 	void SetEmployee();
-	void SetRatio();
 	void Wages(int x);
 	void ChangeAll();
 	int GetIf_issue();
+	void SaveEmp();
 	~Timing();
 };
 
@@ -202,6 +216,25 @@ int Timing::GetIf_issue() {
 	return if_issue;
 }
 
+void Timing::SaveEmp() {
+	ofstream fout;
+	fout.open("d:\\data.txt", ios::app);
+	if (!fout) {
+		cout << "不能打开文件！" << endl;
+		exit(0);
+	}
+	else {
+		fout << bonus << " "
+			<< Time << " "
+			<< HourWage << " "
+			<< OverTime << " "
+			<< Ratio << " "
+			<< Wage <<" "
+			<<if_issue<<"\n";
+	}
+	fout.close();
+}
+
 Timing ::~Timing() {
 	cout << "析构" << endl;
 }
@@ -222,6 +255,7 @@ public:
 	void ChangeAll();
 	void Wages(int x);
 	int GetIf_issue();
+	void SaveEmp();
 	~Salesman();
 };
 
@@ -301,6 +335,24 @@ int Salesman::GetIf_issue() {
 	return if_issue;
 }
 
+void Salesman::SaveEmp() {
+	ofstream fout;
+	fout.open("d:\\data.txt", ios::app);
+	if (!fout) {
+		cout << "不能打开文件！" << endl;
+		exit(0);
+	}
+	else {
+		fout << bonus << " "
+			<< Sale << " "
+			<< Reward << " "
+			<< Deduction << " "
+			<< Wage << " "
+			<< if_issue << "\n";
+	}
+	fout.close();
+}
+
 Salesman ::~Salesman() {
 	cout << "析构" << endl;
 }
@@ -323,6 +375,7 @@ public:
 	void ChangeAll();
 	void Wages(int x);
 	int GetIf_issue();
+	void SaveEmp();
 	~PaidSalesman();
 };
 
@@ -399,6 +452,26 @@ void PaidSalesman::Wages(int x) {
 
 int PaidSalesman::GetIf_issue() {
 	return if_issue;
+}
+
+void PaidSalesman::SaveEmp() {
+	ofstream fout;
+	fout.open("d:\\data.txt", ios::app);
+	if (!fout) {
+		cout << "不能打开文件！" << endl;
+		exit(0);
+	}
+	else {
+		fout << bonus << " "
+			<<FixedWage<<" "
+			<< Sale << " "
+			<< Reward << " "
+			<< Leavedays << " "
+			<< Deduction << " "
+			<< Wage << " "
+			<< if_issue << "\n";
+	}
+	fout.close();
 }
 
 PaidSalesman ::~PaidSalesman() {

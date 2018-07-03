@@ -5,19 +5,46 @@ using std::cin;
 using std::endl;
 using std::internal;
 using std::setw;
+using std::ofstream;
+using std::ifstream;
 
-void InputTips() {
+void InputTips() {											//输入错误时提示函数
 	system("cls");
 	cout << "\n\n\n\n\n\n";
 	cout << "请输入正确选项！" << endl;
-}
+}						
 
-void Cls() {
+void Cls() {												//清屏，对齐函数
 	system("cls");
 	cout << "\n\n\n\n\n\n";
 }
+	
+void Save(Employee *H) {									//保存员工信息函数
+	if (!H)return;
+	ofstream f("d://data.txt");
+	f.close();
+	Employee *p = H->next;
+	while (p) {
+		p->Employee::SaveEmp();								//调用父类中的保存函数
+		p->SaveEmp();										//调用子类中的保存函数
+		p = p->next;
+	}
+	cout << "存储成功！" << endl;
+}
 
-Employee *CreateList(Employee *H) {
+void Read() {												//读取员工信息函数
+	ifstream fin;
+	char c;
+	fin.open("d://data.txt");
+	do {
+		fin.get(c);
+		if (fin.eof())break;
+		cout << c;
+	} while (!fin.eof());
+	fin.close();
+}
+
+Employee *CreateList(Employee *H) {							//创建链表函数
 	Employee *p, *q;
 	H = new Employee;
 	H->ptr = NULL;
@@ -69,7 +96,7 @@ Employee *CreateList(Employee *H) {
 	return H;
 }
 
-void FormatOutput() {
+void FormatOutput() {									//格式化对齐输出函数
 	cout << internal << setw(5) << "工号";
 	cout << internal << setw(6) << "姓名";
 	cout << internal << setw(8) << "性别";
@@ -78,7 +105,7 @@ void FormatOutput() {
 	cout << internal << setw(13) << "奖励薪金";
 }
 
-void PrintList(Employee *H) {
+void PrintList(Employee *H) {							//链表输出函数
 	Employee *p = H->next;
 	cout << "***********************************************固定月薪***********************************************" << endl;
 	FormatOutput();
@@ -150,7 +177,7 @@ void PrintList(Employee *H) {
 	cout << "----------------------------------------------------------------------------------------------------------------\n" << endl;
 }
 
-Employee *FindEmployee(Employee *H) {
+Employee *FindEmployee(Employee *H) {								//查找员工函数
 	int c;
 	Employee *p = H->next;
 	cout << "1.按工号查找\n2.按姓名查找\n";
@@ -224,7 +251,7 @@ Employee *FindEmployee(Employee *H) {
 	return p;
 }
 
-void DelEmployee(Employee *H) {
+void DelEmployee(Employee *H) {								//删除员工函数
 	Employee *p = H->next;
 	cout << "选择删除方式:\n";
 	p = FindEmployee(H);
@@ -246,7 +273,7 @@ void DelEmployee(Employee *H) {
 	}
 }
 
-void ChangeEmployee(Employee *H) {
+void ChangeEmployee(Employee *H) {							//修改员工信息函数
 	Employee *p = H->next;
 	Employee *q = NULL;
 	p = FindEmployee(H);
@@ -310,7 +337,7 @@ void ChangeEmployee(Employee *H) {
 	}
 }
 
-void WageType(Employee *H,string x) {
+void WageType(Employee *H,string x) {						//按员工类型发工资函数			
 	Employee *p = H->next;
 	while (p)
 	{
@@ -322,7 +349,7 @@ void WageType(Employee *H,string x) {
 	}
 }
 
-void Wages(Employee *H) {
+void Wages(Employee *H) {									//员工发工资函数
 	Employee *p = H->next;
 	Employee *q = NULL;
 	int x;
